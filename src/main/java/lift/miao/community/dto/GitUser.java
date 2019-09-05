@@ -1,6 +1,6 @@
 package lift.miao.community.dto;
 /**
-* @Description:    码云账户授权用户信息
+* @Description:    码云授权用户信息
 * @Author:         Joe
 * @CreateDate:     2019/9/5 16:58
 */
