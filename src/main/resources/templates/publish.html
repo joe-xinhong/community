@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>发布 - 安静社区</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="css/community.css">
+    <script type="application/javascript" src="js/jquery-3.3.1.min.js" ></script>
+    <script type="application/javascript" src="js/bootstrap.js" ></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">安静社区</span>
+            </button>
+            <a class="navbar-brand" href="#">安静社区</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="搜索问题">
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" th:if="${session.user !=null }">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" th:text="${session.user.getName()}"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">消息中心</a></li>
+                        <li><a href="#">个人资料</a></li>
+                        <li><a href="#">退出登录</a></li>
+                    </ul>
+                </li>
+                <li th:if="${session.user ==null }"><a href="https://gitee.com/oauth/authorize?client_id=0612af6cad44d6f2e90134725436fe18def380fce1c6c717117ce0ca5b85eec3&redirect_uri=http://localhost:8088/callback&response_type=code&scope=user_info">登录</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12" >
+            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>发起</h2>
+            <hr>
+            <form action="">
+                <div class="form-group">
+                    <label for="title">问题标题(简单扼要):</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="问题标题……">
+                </div>
+                <div class="form-group">
+                    <label for="title">问题补充(必填，请参考右侧提示):</label>
+                    <textarea class="form-control" rows="3" name="description" id="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="tag">添加标签:</label>
+                    <input type="text" class="form-control" id="tag" name="tag" placeholder="输入标签，以逗号分割">
+                </div>
+
+                <button type="submit" class="btn btn-success btn-publish">发布</button>
+            </form>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" >
+            <h2>什么是码云</h2>
+            码云是开源中国社区2013年推出的基于 Git 的完全免费的代码托管服务，这个服务是基于 Gitlab 开源软件所开发的，我们在 Gitlab 的基础上做了大量的改进和定制开发，目前已经成为国内最大的代码托管系统，致力于为国内开发者提供优质稳定的托管服务。<br>
+            码云主要功能<br>
+            码云除了提供最基础的 Git 代码托管之外，还提供代码在线查看、历史版本查看、Fork、Pull Request、打包下载任意版本、Issue、Wiki 、保护分支、代码质量检测、PaaS项目演示等方便管理、开发、协作、共享的功能。
+            Git 版本控制入门<br>
+            不了解Git请查看权威Git书籍 ProGit（中文版）。<br>
+            一份很好的 Git 入门教程，点击这里查看。<br>
+            Git客户端下载地址： 官方Git － TortoiseGit － SourceTree
+            常用工具及插件教程<br>
+            eclipse中egit插件使用-图文并茂-详细<br>
+            Visual Studio 2012连接到osc@git<br>
+            TortoiseGit配合msysGit在Gitee代码托管的傻瓜教程
+            利用eclipse的git插件EGit与Gitee交互
+            Git初体验
+            在win7系统下使用TortoiseGit(乌龟git)简单操作Gitee
+            Xcode连接git @ osc
+            Gitee(git)中team开发、fork和pull request的用法
+            eclipse的git插件整合Gitee
+            Eclipse使用EGit管理Gitee项目
+            如何导入外部Git仓库到中国源代码托管平台（Gitee）
+            https 方式使用Gitee设置密码的方式
+        </div>
+    </div>
+</div>
+</body>
+</html>
