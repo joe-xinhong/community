@@ -53,6 +53,7 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(gitUser.getId()));
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
+            user.setAvatarUrl(gitUser.getAvatar_url());
             userMapper.insert(user);
             //登录成功，写cookie和Session
             Cookie cookie = new Cookie("token",token);

@@ -1,14 +1,15 @@
-package lift.miao.community.model;
+package lift.miao.community.dto;
 
+import lift.miao.community.model.User;
 import lombok.Data;
 
 /**
-* @Description:    问题实体
+* @Description:    问题（传输型数据）
 * @Author:         Joe
-* @CreateDate:     2019/9/6 17:30
+* @CreateDate:     2019/9/9 16:54
 */
 @Data
-public class Question {
+public class QuestionDTO {
 
     private Integer id;
     private String title;
@@ -20,5 +21,5 @@ public class Question {
     private Integer viewCount;
     private Integer commentCount;
     private Integer likeCount;
-
+    private User user;
 }
