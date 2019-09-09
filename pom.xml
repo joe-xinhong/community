@@ -77,6 +77,12 @@
             <version>1.18.8</version>
             <scope>provided</scope>
         </dependency>
+        <!--热部署（原理：替换字节码）[配合使用build按键中的project build]-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
