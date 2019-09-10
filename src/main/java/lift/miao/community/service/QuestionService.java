@@ -1,5 +1,6 @@
 package lift.miao.community.service;
 
+import lift.miao.community.dto.PaginationDTO;
 import lift.miao.community.dto.QuestionDTO;
 import lift.miao.community.mapper.QuestionMapper;
 import lift.miao.community.mapper.UserMapper;
@@ -19,9 +20,21 @@ public class QuestionService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<QuestionDTO> list() {
-        List<Question> questionList = questionMapper.list();
+    public PaginationDTO list(Integer page, Integer pageSize) {
+        PaginationDTO paginationDTO = new PaginationDTO();
+        /*信息总条数*/
+        Integer totalCount = questionMapper.count();
+        paginationDTO.setPagination(totalCount,page,pageSize);
+        if(page<1){
+            page=1;
+        }
+        if(page>paginationDTO.getTotalPage()){
+            page=paginationDTO.getTotalPage();
+        }
+        Integer offset = pageSize * (page-1);
+        List<Question> questionList = questionMapper.list(offset,pageSize);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
+
         if(questionList!=null&&questionList.size()>0){
             for (Question question : questionList) {
                 User user = userMapper.findById(question.getCreator());
@@ -30,7 +43,8 @@ public class QuestionService {
                 questionDTO.setUser(user);
                 questionDTOList.add(questionDTO);
             }
+            paginationDTO.setQuestionList(questionDTOList);
         }
-        return questionDTOList;
+        return paginationDTO;
     }
 }
