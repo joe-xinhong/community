@@ -23,12 +23,8 @@ public class PaginationDTO {
     private Integer totalPage;
 
     //页码数据处理
-    public void setPagination(Integer totalCount, Integer page, Integer pageSize) {
-        if(totalCount % pageSize ==0){
-            totalPage = totalCount / pageSize;
-        }else {
-            totalPage = totalCount / pageSize + 1;
-        }
+    public void setPagination(Integer totalPage, Integer page) {
+        this.totalPage = totalPage;
         this.page = page;
         pages.add(page);
 

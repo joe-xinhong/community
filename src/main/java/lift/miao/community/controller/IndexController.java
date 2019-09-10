@@ -1,10 +1,7 @@
 package lift.miao.community.controller;
 
 import lift.miao.community.dto.PaginationDTO;
-import lift.miao.community.dto.QuestionDTO;
-import lift.miao.community.mapper.QuestionMapper;
 import lift.miao.community.mapper.UserMapper;
-import lift.miao.community.model.Question;
 import lift.miao.community.model.User;
 import lift.miao.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +25,6 @@ public class IndexController {
     @Autowired
     private UserMapper userMapper;
 
-    @Autowired
-    private QuestionMapper questionMapper;
     @Autowired
     private QuestionService questionService;
     @RequestMapping("/")
