@@ -58,7 +58,6 @@ public class AuthorizeController {
             //登录成功，写cookie和Session
             Cookie cookie = new Cookie("token",token);
             response.addCookie(cookie);
-            //request.getSession().setAttribute("user",gitUser);
             //重定向到首页
             return "redirect:/";
         }else {
