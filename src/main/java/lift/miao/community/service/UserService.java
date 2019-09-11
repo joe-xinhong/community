@@ -28,8 +28,7 @@ public class UserService {
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
         }else {
-            dbUser.setGmtCreate(System.currentTimeMillis());
-            dbUser.setGmtModified(user.getGmtCreate());
+            dbUser.setGmtModified(System.currentTimeMillis());
             dbUser.setToken(user.getToken());
             dbUser.setName(user.getName());
             dbUser.setAvatarUrl(user.getAvatarUrl());

@@ -2,7 +2,6 @@ package lift.miao.community.controller;
 
 import lift.miao.community.dto.AccessTokenDTO;
 import lift.miao.community.dto.GitUser;
-import lift.miao.community.mapper.UserMapper;
 import lift.miao.community.model.User;
 import lift.miao.community.provider.GithubProvider;
 import lift.miao.community.service.UserService;
