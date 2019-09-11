@@ -28,7 +28,7 @@
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/profile/questions">我的问题</a></li>
-                        <li><a href="#">退出登录</a></li>
+                        <li><a href="/logout">退出登录</a></li>
                     </ul>
                 </li>
                 <li th:if="${session.user ==null }"><a href="https://gitee.com/oauth/authorize?client_id=0612af6cad44d6f2e90134725436fe18def380fce1c6c717117ce0ca5b85eec3&redirect_uri=http://localhost:8088/callback&response_type=code&scope=user_info">登录</a></li>
