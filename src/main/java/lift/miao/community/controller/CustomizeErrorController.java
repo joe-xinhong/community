@@ -1,5 +1,6 @@
 package lift.miao.community.controller;
 
+import io.swagger.annotations.Api;
 import org.mybatis.generator.config.ModelType;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
@@ -10,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
 * @Description:    定义自己的异常处理
 * @Author:         Joe
 * @CreateDate:     2019/9/12 18:31
 */
+@Api(value = "自定义异常及错误处理",description = "自定义异常及错误处理")
 @Controller
 @RequestMapping("${server.error.path:${error.path:/error}}")
 public class CustomizeErrorController implements ErrorController {

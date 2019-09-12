@@ -1,5 +1,6 @@
 package lift.miao.community.controller;
 
+import io.swagger.annotations.Api;
 import lift.miao.community.dto.PaginationDTO;
 import lift.miao.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 * @CreateDate:     2019/9/4 14:40
 */
 @Controller
+@Api(value = "主页数据接口",description = "主页数据接口")
 public class IndexController {
 
     @Autowired

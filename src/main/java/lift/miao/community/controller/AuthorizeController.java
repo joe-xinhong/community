@@ -1,5 +1,6 @@
 package lift.miao.community.controller;
 
+import io.swagger.annotations.Api;
 import lift.miao.community.dto.AccessTokenDTO;
 import lift.miao.community.dto.GitUser;
 import lift.miao.community.model.User;
@@ -22,6 +23,7 @@ import java.util.UUID;
 * @CreateDate:     2019/9/5 15:59
 */
 @Controller
+@Api(value = "授权接口",description = "授权接口")
 public class AuthorizeController {
 
     @Autowired

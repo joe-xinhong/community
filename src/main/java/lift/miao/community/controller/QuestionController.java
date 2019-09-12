@@ -1,5 +1,6 @@
 package lift.miao.community.controller;
 
+import io.swagger.annotations.Api;
 import lift.miao.community.dto.QuestionDTO;
 import lift.miao.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 * @CreateDate:     2019/9/11 16:07
 */
 @Controller
+@Api(value = "问题详情接口",description = "问题详情接口")
 public class QuestionController {
 
     @Autowired

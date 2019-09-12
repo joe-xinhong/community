@@ -1,5 +1,6 @@
 package lift.miao.community.controller;
 
+import io.swagger.annotations.Api;
 import lift.miao.community.dto.PaginationDTO;
 import lift.miao.community.mapper.UserMapper;
 import lift.miao.community.model.User;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 * @CreateDate:     2019/9/10 17:13
 */
 @Controller
+@Api(value = "个人中心接口",description = "个人中心接口")
 public class ProfileController {
 
     @Autowired

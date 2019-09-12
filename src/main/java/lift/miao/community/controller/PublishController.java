@@ -1,5 +1,6 @@
 package lift.miao.community.controller;
 
+import io.swagger.annotations.Api;
 import lift.miao.community.dto.QuestionDTO;
 import lift.miao.community.mapper.QuestionMapper;
 import lift.miao.community.model.Question;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 * @CreateDate:     2019/9/6 16:16
 */
 @Controller
+@Api(value = "问题处理接口",description = "问题处理接口")
 public class PublishController {
 
     @Autowired
