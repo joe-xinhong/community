@@ -2,8 +2,11 @@ package lift.miao.community.service;
 
 import lift.miao.community.mapper.UserMapper;
 import lift.miao.community.model.User;
+import lift.miao.community.model.UserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
 * @Description:    用户业务处理
@@ -21,19 +24,25 @@ public class UserService {
      * @param user
      */
     public void createOrUpdate(User user) {
-        User dbUser = userMapper.findByAccountId(user.getAccountId());
-        if (dbUser==null){
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andAccountIdEqualTo(user.getAccountId());
+        List<User> dbUsers = userMapper.selectByExample(userExample);
+        if (dbUsers==null || dbUsers.size()==0){
             //插入数据
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
         }else {
-            dbUser.setGmtModified(System.currentTimeMillis());
-            dbUser.setToken(user.getToken());
-            dbUser.setName(user.getName());
-            dbUser.setAvatarUrl(user.getAvatarUrl());
+            User dbUser = dbUsers.get(0);
             //更新
-            userMapper.update(dbUser);
+            User updateUser = new User();
+            updateUser.setGmtModified(System.currentTimeMillis());
+            updateUser.setToken(user.getToken());
+            updateUser.setName(user.getName());
+            updateUser.setAvatarUrl(user.getAvatarUrl());
+            UserExample userExample1 = new UserExample();
+            userExample1.createCriteria().andIdEqualTo(dbUser.getId());
+            userMapper.updateByExampleSelective(updateUser,userExample1);
         }
     }
 }

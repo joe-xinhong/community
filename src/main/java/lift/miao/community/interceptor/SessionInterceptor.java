@@ -2,6 +2,7 @@ package lift.miao.community.interceptor;
 
 import lift.miao.community.mapper.UserMapper;
 import lift.miao.community.model.User;
+import lift.miao.community.model.UserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
 * @Description:    拦截器
@@ -30,9 +32,11 @@ public class SessionInterceptor implements HandlerInterceptor {
             for (Cookie cookie:cookies){
                 if(cookie.getName().equals("token")){
                     String token = cookie.getValue();
-                    User user = userMapper.findByToken(token);
-                    if(user!=null){
-                        request.getSession().setAttribute("user",user);
+                    UserExample userExample = new UserExample();
+                    userExample.createCriteria().andTokenEqualTo(token);
+                    List<User> users = userMapper.selectByExample(userExample);
+                    if(users!=null && users.size()>0){
+                        request.getSession().setAttribute("user",users.get(0));
                     }
                     break;
                 }
