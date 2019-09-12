@@ -2,6 +2,8 @@ package lift.miao.community.service;
 
 import lift.miao.community.dto.PaginationDTO;
 import lift.miao.community.dto.QuestionDTO;
+import lift.miao.community.exception.CustomizeErrorCode;
+import lift.miao.community.exception.CustomizeException;
 import lift.miao.community.mapper.QuestionMapper;
 import lift.miao.community.mapper.UserMapper;
 import lift.miao.community.model.Question;
@@ -97,12 +99,15 @@ public class QuestionService {
     }
 
     /**
-     *获取单个问题详情
+     *获取问题详情
      * @param id
      * @return
      */
     public QuestionDTO getById(Integer id) {
         Question question = questionMapper.selectByPrimaryKey(id);
+        if(question==null){
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question,questionDTO);
         User user = userMapper.selectByPrimaryKey(question.getCreator());
@@ -119,7 +124,6 @@ public class QuestionService {
             questionMapper.insert(question);
         }else {
             //更新
-
             Question UpdateQuestion = new Question();
             UpdateQuestion.setGmtModified(System.currentTimeMillis());
             UpdateQuestion.setTitle(question.getTitle());
@@ -127,7 +131,10 @@ public class QuestionService {
             UpdateQuestion.setTag(question.getTag());
             QuestionExample questionExample = new QuestionExample();
             questionExample.createCriteria().andIdEqualTo(question.getId());
-            questionMapper.updateByExampleSelective(UpdateQuestion,questionExample);
+            int updated =questionMapper.updateByExampleSelective(UpdateQuestion,questionExample);
+            if(updated!=1){
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
     }
 }
