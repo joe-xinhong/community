@@ -4,6 +4,7 @@ import lift.miao.community.dto.PaginationDTO;
 import lift.miao.community.dto.QuestionDTO;
 import lift.miao.community.exception.CustomizeErrorCode;
 import lift.miao.community.exception.CustomizeException;
+import lift.miao.community.mapper.QuestionExtMapper;
 import lift.miao.community.mapper.QuestionMapper;
 import lift.miao.community.mapper.UserMapper;
 import lift.miao.community.model.Question;
@@ -23,6 +24,8 @@ public class QuestionService {
     private QuestionMapper questionMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     public PaginationDTO list(Integer page, Integer pageSize) {
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -136,5 +139,16 @@ public class QuestionService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
+    }
+
+    /**
+     * 阅读数功能处理
+     * @param id
+     */
+    public void incView(Integer id) {
+        Question question = new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.incView(question);
     }
 }

@@ -46,7 +46,7 @@
         </javaClientGenerator>
 
         <!-- 要生成哪些表 -->
-        <table tableName="user" domainObjectName="User"></table>
+        <!--<table tableName="user" domainObjectName="User"></table>-->
         <table tableName="question" domainObjectName="Question"></table>
     </context>
 </generatorConfiguration>
