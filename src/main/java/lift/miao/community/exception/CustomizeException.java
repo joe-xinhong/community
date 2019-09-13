@@ -9,12 +9,11 @@ public class CustomizeException extends RuntimeException {
 
     private String message;
 
-    public CustomizeException(ICustomizeErrorCode errorCode) {
-        this.message = errorCode.getMessage();
-    }
+    private Integer code;
 
-    public CustomizeException(String message) {
-        this.message = message;
+    public CustomizeException(ICustomizeErrorCode errorCode) {
+        this.code = errorCode.getCode();
+        this.message = errorCode.getMessage();
     }
 
     @Override
@@ -22,4 +21,7 @@ public class CustomizeException extends RuntimeException {
         return message;
     }
 
+    public Integer getCode() {
+        return code;
+    }
 }
