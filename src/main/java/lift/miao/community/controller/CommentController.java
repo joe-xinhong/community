@@ -42,6 +42,7 @@ public class CommentController {
         if(user == null){
             return ResultDTO.errorOf(CustomizeErrorCode.NOT_LOGIN);
         }
+        System.out.println(commentDTO.getParentId());
         Comment comment = new Comment();
         comment.setParentId(commentDTO.getParentId());
         comment.setContent(commentDTO.getContent());
