@@ -2,7 +2,7 @@ package lift.miao.community.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lift.miao.community.dto.CommentDTO;
+import lift.miao.community.dto.CommentCreateDTO;
 import lift.miao.community.dto.ResultDTO;
 import lift.miao.community.exception.CustomizeErrorCode;
 import lift.miao.community.mapper.CommentMapper;
@@ -36,17 +36,17 @@ public class CommentController {
     @ResponseBody
     @ApiOperation(value = "添加评论",notes = "增加评论")
     @RequestMapping(value = "/comment",method = RequestMethod.POST)
-    public Object post(@RequestBody CommentDTO commentDTO,
+    public Object post(@RequestBody CommentCreateDTO commentCreateDTO,
                        HttpServletRequest request){
         User user = (User) request.getSession().getAttribute("user");
         if(user == null){
             return ResultDTO.errorOf(CustomizeErrorCode.NOT_LOGIN);
         }
-        System.out.println(commentDTO.getParentId());
+        System.out.println(commentCreateDTO.getParentId());
         Comment comment = new Comment();
-        comment.setParentId(commentDTO.getParentId());
-        comment.setContent(commentDTO.getContent());
-        comment.setType(commentDTO.getType());
+        comment.setParentId(commentCreateDTO.getParentId());
+        comment.setContent(commentCreateDTO.getContent());
+        comment.setType(commentCreateDTO.getType());
         comment.setGmtCreate(System.currentTimeMillis());
         comment.setGmtModified(System.currentTimeMillis());
         comment.setCommentator(1);
