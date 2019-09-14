@@ -9,6 +9,7 @@ import lift.miao.community.mapper.CommentMapper;
 import lift.miao.community.model.Comment;
 import lift.miao.community.model.User;
 import lift.miao.community.service.CommentService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -40,7 +39,11 @@ public class CommentController {
                        HttpServletRequest request){
         User user = (User) request.getSession().getAttribute("user");
         if(user == null){
-            return ResultDTO.errorOf(CustomizeErrorCode.NOT_LOGIN);
+            return ResultDTO.errorOf(CustomizeErrorCode.NO_LOGIN);
+        }
+        //StringUtils.isBlank(commentCreateDTO.getContent())代替了(commentCreateDTO.getContent()==null||commentCreateDTO.getContent()=="")
+        if(commentCreateDTO==null||StringUtils.isBlank(commentCreateDTO.getContent())){
+            return ResultDTO.errorOf(CustomizeErrorCode.COMMENT_IS_EMPTY);
         }
         System.out.println(commentCreateDTO.getParentId());
         Comment comment = new Comment();

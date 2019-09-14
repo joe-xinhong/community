@@ -4,6 +4,10 @@ function post() {
    var questionId  = $("#question_id").val();
     //获取评论或者回复的内容
    var content = $("#comment_content").val();
+   if(!content){
+       alert("不能回复空内容");
+       return;
+   }
     $.ajax({
         type: "POST",
         url: "/comment",
@@ -15,7 +19,10 @@ function post() {
         }),
         success: function (response) {
             if(response.code==200){
-                $("#comment_section").hide();
+                //执行成功后隐藏输入框
+                //$("#comment_section").hide();
+                //执行成功后刷新页面
+                window.location.reload();
             }else {
                 if(response.code=2003){
                     var isAccepted = confirm(response.message);
