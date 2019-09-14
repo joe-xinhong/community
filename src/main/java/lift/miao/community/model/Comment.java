@@ -3,7 +3,7 @@ package lift.miao.community.model;
 import java.io.Serializable;
 
 public class Comment implements Serializable {
-    private Integer id;
+    private Long id;
 
     private Long parentId;
 
@@ -15,17 +15,19 @@ public class Comment implements Serializable {
 
     private Long gmtModified;
 
-    private Long likeCount;
+    private Integer likeCount;
 
     private String content;
 
+    private Integer commentCount;
+
     private static final long serialVersionUID = 1L;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -69,11 +71,11 @@ public class Comment implements Serializable {
         this.gmtModified = gmtModified;
     }
 
-    public Long getLikeCount() {
+    public Integer getLikeCount() {
         return likeCount;
     }
 
-    public void setLikeCount(Long likeCount) {
+    public void setLikeCount(Integer likeCount) {
         this.likeCount = likeCount;
     }
 
@@ -83,6 +85,14 @@ public class Comment implements Serializable {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public Integer getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
     }
 
     @Override
@@ -104,7 +114,8 @@ public class Comment implements Serializable {
             && (this.getGmtCreate() == null ? other.getGmtCreate() == null : this.getGmtCreate().equals(other.getGmtCreate()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()))
             && (this.getLikeCount() == null ? other.getLikeCount() == null : this.getLikeCount().equals(other.getLikeCount()))
-            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()));
+            && (this.getContent() == null ? other.getContent() == null : this.getContent().equals(other.getContent()))
+            && (this.getCommentCount() == null ? other.getCommentCount() == null : this.getCommentCount().equals(other.getCommentCount()));
     }
 
     @Override
@@ -119,6 +130,7 @@ public class Comment implements Serializable {
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
         result = prime * result + ((getLikeCount() == null) ? 0 : getLikeCount().hashCode());
         result = prime * result + ((getContent() == null) ? 0 : getContent().hashCode());
+        result = prime * result + ((getCommentCount() == null) ? 0 : getCommentCount().hashCode());
         return result;
     }
 
@@ -136,6 +148,7 @@ public class Comment implements Serializable {
         sb.append(", gmtModified=").append(gmtModified);
         sb.append(", likeCount=").append(likeCount);
         sb.append(", content=").append(content);
+        sb.append(", commentCount=").append(commentCount);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

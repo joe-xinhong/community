@@ -3,21 +3,20 @@ package lift.miao.community.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lift.miao.community.dto.CommentCreateDTO;
+import lift.miao.community.dto.CommentDTO;
 import lift.miao.community.dto.ResultDTO;
+import lift.miao.community.enums.CommentTypeEnum;
 import lift.miao.community.exception.CustomizeErrorCode;
-import lift.miao.community.mapper.CommentMapper;
 import lift.miao.community.model.Comment;
 import lift.miao.community.model.User;
 import lift.miao.community.service.CommentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 /**
@@ -53,8 +52,17 @@ public class CommentController {
         comment.setGmtCreate(System.currentTimeMillis());
         comment.setGmtModified(System.currentTimeMillis());
         comment.setCommentator(1);
-        comment.setLikeCount(0L);
+        comment.setLikeCount(0);
+        comment.setCommentCount(0);
         commentService.insert(comment);
         return ResultDTO.okOf();
+    }
+
+    @ResponseBody
+    @ApiOperation(value = "查询评论的二级信息",notes = "查询评论的二级信息")
+    @RequestMapping(value = "/comment/{id}",method = RequestMethod.GET)
+    public ResultDTO<List<CommentDTO>> comments(@PathVariable(name = "id")Long id){
+        List<CommentDTO> commentDTOS = commentService.listByTargetId(id, CommentTypeEnum.COMMENT.getType());
+        return ResultDTO.okOf(commentDTOS);
     }
 }

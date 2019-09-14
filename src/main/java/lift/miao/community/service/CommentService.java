@@ -4,10 +4,7 @@ import lift.miao.community.dto.CommentDTO;
 import lift.miao.community.enums.CommentTypeEnum;
 import lift.miao.community.exception.CustomizeErrorCode;
 import lift.miao.community.exception.CustomizeException;
-import lift.miao.community.mapper.CommentMapper;
-import lift.miao.community.mapper.QuestionExtMapper;
-import lift.miao.community.mapper.QuestionMapper;
-import lift.miao.community.mapper.UserMapper;
+import lift.miao.community.mapper.*;
 import lift.miao.community.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +28,8 @@ public class CommentService {
     private QuestionExtMapper questionExtMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private CommentExtMapper commentExtMapper;
     @Transactional/*添加事务*/
     public void insert(Comment comment) {
         if(comment.getParentId() == null || comment.getParentId() == 0){
@@ -41,11 +40,18 @@ public class CommentService {
         }
         if(comment.getType() == CommentTypeEnum.COMMENT.getType()){
             //回复评论
-            Comment dbComment = commentMapper.selectByPrimaryKey(comment.getId());
-            if(dbComment==null){
+            CommentExample commentExample = new CommentExample();
+            commentExample.createCriteria().andIdEqualTo(comment.getParentId());
+            List<Comment> dbComments = commentMapper.selectByExample(commentExample);
+            if(dbComments==null||dbComments.size()==0){
                 throw  new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             }
             commentMapper.insert(comment);
+            //增加评论数
+            Comment parentComment = new Comment();
+            parentComment.setId(comment.getParentId());
+            parentComment.setCommentCount(1);
+            commentExtMapper.incCommentCount(parentComment);
         }else {
             //回复问题
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
@@ -58,11 +64,11 @@ public class CommentService {
         }
     }
 
-    public List<CommentDTO> listByQuestionId(Long id) {
+    public List<CommentDTO> listByTargetId(Long id,Integer type) {
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria()
                 .andParentIdEqualTo(id)
-                .andTypeEqualTo(CommentTypeEnum.QUESTION.getType());
+                .andTypeEqualTo(type);
         commentExample.setOrderByClause("gmt_create desc");
         List<Comment> comments = commentMapper.selectByExample(commentExample);
         if(comments==null||comments.size()==0){

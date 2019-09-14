@@ -3,6 +3,7 @@ package lift.miao.community.controller;
 import io.swagger.annotations.Api;
 import lift.miao.community.dto.CommentDTO;
 import lift.miao.community.dto.QuestionDTO;
+import lift.miao.community.enums.CommentTypeEnum;
 import lift.miao.community.service.CommentService;
 import lift.miao.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class QuestionController {
     public String question(@PathVariable(name = "id")Long id,
                            Model model){
         QuestionDTO questionDTO = questionService.getById(id);
-        List<CommentDTO> commentDTOList = commentService.listByQuestionId(id);
+        List<CommentDTO> commentDTOList = commentService.listByTargetId(id,CommentTypeEnum.QUESTION.getType());
         questionService.incView(id);
         model.addAttribute("question",questionDTO);
         model.addAttribute("comments",commentDTOList);

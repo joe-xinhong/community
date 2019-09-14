@@ -5,13 +5,14 @@ import lombok.Data;
 
 @Data
 public class CommentDTO {
-    private Integer id;
+    private Long id;
     private Long parentId;
     private Integer type;
     private Integer commentator;
     private Long gmtCreate;
     private Long gmtModified;
-    private Long likeCount;
+    private Integer likeCount;
     private String content;
+    private Integer commentCount;
     private User user;
 }
