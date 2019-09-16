@@ -11,9 +11,9 @@ import java.util.List;
 * @CreateDate:     2019/9/10 13:57
 */
 @Data
-public class PaginationDTO {
+public class PaginationDTO<T> {
 
-    private List<QuestionDTO> questionList;
+    private List<T> data;
     private boolean showPrevious;
     private boolean showFirstPage;
     private boolean showNext;

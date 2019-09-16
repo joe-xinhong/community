@@ -48,6 +48,6 @@
         <!-- 要生成哪些表 -->
         <!--<table tableName="user" domainObjectName="User"></table>-->
         <!--<table tableName="question" domainObjectName="Question"></table>-->
-        <table tableName="comment" domainObjectName="Comment"></table>
+        <table tableName="notification" domainObjectName="notification"></table>
     </context>
 </generatorConfiguration>
