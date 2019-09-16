@@ -1,11 +1,13 @@
 package lift.miao.community.controller;
 
 import io.swagger.annotations.Api;
+import lift.miao.community.cache.TagCache;
 import lift.miao.community.dto.QuestionDTO;
 import lift.miao.community.mapper.QuestionMapper;
 import lift.miao.community.model.Question;
 import lift.miao.community.model.User;
 import lift.miao.community.service.QuestionService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,11 +40,13 @@ public class PublishController {
         model.addAttribute("description",question.getDescription());
         model.addAttribute("tag",question.getTag());
         model.addAttribute("id",question.getId());
+        model.addAttribute("tags",TagCache.get());
         return "publish";
     }
 
     @GetMapping("/publish")
-    public String publish(){
+    public String publish(Model model){
+        model.addAttribute("tags",TagCache.get());
         return "publish";
     }
 
@@ -56,6 +60,7 @@ public class PublishController {
         model.addAttribute("title",title);
         model.addAttribute("description",description);
         model.addAttribute("tag",tag);
+        model.addAttribute("tags",TagCache.get());
         if (title==null||title==""){
             model.addAttribute("error","标题不能为空");
             return "publish";
@@ -68,11 +73,17 @@ public class PublishController {
             model.addAttribute("error","标签不能为空");
             return "publish";
         }
+        String s = TagCache.filterInvalid(tag);
+        if(StringUtils.isNotBlank(s)){
+            model.addAttribute("error","输入非法标签"+s);
+            return "publish";
+        }
         User user = (User)request.getSession().getAttribute("user");
         if (user==null){
             model.addAttribute("error","用户未登录");
             return "publish";
         }
+
         Question question = new Question();
         question.setId(id);
         question.setTitle(title);
