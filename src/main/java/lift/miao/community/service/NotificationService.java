@@ -7,7 +7,6 @@ import lift.miao.community.enums.NotificationTypeEnum;
 import lift.miao.community.exception.CustomizeErrorCode;
 import lift.miao.community.exception.CustomizeException;
 import lift.miao.community.mapper.NotificationMapper;
-import lift.miao.community.mapper.UserMapper;
 import lift.miao.community.model.Notification;
 import lift.miao.community.model.NotificationExample;
 import lift.miao.community.model.User;
@@ -46,7 +45,9 @@ public class NotificationService {
         paginationDTO.setPagination(totalPage,page);
         Integer offset = pageSize * (page-1);
         NotificationExample notificationExample1 = new NotificationExample();
-        notificationExample1.createCriteria().andReceiverEqualTo(id);
+        notificationExample1.createCriteria()
+                .andReceiverEqualTo(id);
+        notificationExample1.setOrderByClause("gmt_create desc");
         List<Notification> notifications = notificationMapper.selectByExampleWithRowbounds(notificationExample1,new RowBounds(offset,pageSize));
         if(notifications.size()==0){
             return paginationDTO;
