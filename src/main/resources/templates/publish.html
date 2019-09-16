@@ -33,15 +33,15 @@
                         <div id="select-tag" class="publish-tag-tab">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" th:each="selectTagCategory : ${tags}">
+                                <li role="presentation" th:each="selectTagCategory,selectTagCategoryStat : ${tags}" th:class="${selectTagCategoryStat.first?'active':''}">
                                     <a th:href="${'#'+selectTagCategory.categoryName}" aria-controls="home" role="tab" data-toggle="tab" th:text="${selectTagCategory.categoryName}"></a></li>
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane" th:id="${selectTagCategory.categoryName}" th:each="selectTagCategory : ${tags}">
+                                <div role="tabpanel"  th:id="${selectTagCategory.categoryName}" th:each="selectTagCategory : ${tags}" th:class="${selectTagCategoryStat.first?'active tab-pane':'tab-pane'}">
                                     <span class="label label-info" th:each="selectTag : ${selectTagCategory.tags}">
-                                    <span class="glyphicon glyphicon-tags"  onclick="selectTag(this)" th:data-tag="${selectTag}" th:text="${selectTag}"></span>
+                                    <span class="glyphicon glyphicon-tags"  onclick="selectTag(this)" th:data-tag="${selectTag}" th:text="${' '+selectTag}"></span>
                                     </span>
                                 </div>
                             </div>
