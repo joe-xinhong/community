@@ -26,11 +26,20 @@ public class FileController {
     @RequestMapping("/file/upload")
     @ResponseBody
     public FileDTO upload(HttpServletRequest request){
+        String defaultKey = "upload/";
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
         MultipartFile file = multipartRequest.getFile("editormd-image-file");
         File newFile = FileUtils.multipartFileToFile(file);
-        String s = qcloudProvider.uploadfile(newFile);
-        System.out.println("返回的文件："+s);
+        try {
+            String fileName = qcloudProvider.uploadfile(newFile,defaultKey);
+            System.out.println("返回的文件："+fileName);
+            FileDTO fileDTO = new FileDTO();
+            fileDTO.setSuccess(1);
+            fileDTO.setUrl(fileName);
+            return fileDTO;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         FileDTO fileDTO = new FileDTO();
         fileDTO.setSuccess(1);
         fileDTO.setUrl("/images/a.jpg");
