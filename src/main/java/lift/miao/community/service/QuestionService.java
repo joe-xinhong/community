@@ -2,6 +2,7 @@ package lift.miao.community.service;
 
 import lift.miao.community.dto.PaginationDTO;
 import lift.miao.community.dto.QuestionDTO;
+import lift.miao.community.dto.QuestionQueryDTO;
 import lift.miao.community.exception.CustomizeErrorCode;
 import lift.miao.community.exception.CustomizeException;
 import lift.miao.community.mapper.QuestionExtMapper;
@@ -31,11 +32,20 @@ public class QuestionService {
     @Autowired
     private QuestionExtMapper questionExtMapper;
 
-    public PaginationDTO list(Integer page, Integer pageSize) {
+    public PaginationDTO list(String search,Integer page, Integer pageSize) {
+        if(StringUtils.isNotBlank(search)){
+            String[] tags = StringUtils.split(search, " ");
+            search=Arrays.stream(tags).collect(Collectors.joining("|"));
+
+        }
         PaginationDTO paginationDTO = new PaginationDTO();
         Integer totalPage;
         /*信息总条数*/
-        Integer totalCount = (int)questionMapper.countByExample(new QuestionExample());
+        /*补充搜索，进行替换*/
+        /*Integer totalCount = (int)questionMapper.countByExample(new QuestionExample());*/
+        QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+        questionQueryDTO.setSearch(search);
+        Integer totalCount = questionExtMapper.countBySearch(questionQueryDTO);
         if(totalCount % pageSize ==0){
             totalPage = totalCount / pageSize;
         }else {
@@ -54,7 +64,11 @@ public class QuestionService {
         }
         QuestionExample questionExample = new QuestionExample();
         questionExample.setOrderByClause("gmt_create desc");
-        List<Question> questionList = questionMapper.selectByExampleWithRowbounds(questionExample,new RowBounds(offset,pageSize));
+        /*补充搜索，进行替换*/
+        /*List<Question> questionList = questionMapper.selectByExampleWithRowbounds(questionExample,new RowBounds(offset,pageSize));*/
+        questionQueryDTO.setPage(offset);
+        questionQueryDTO.setPageSize(pageSize);
+        List<Question> questionList = questionExtMapper.selectBySearch(questionQueryDTO);
         List<QuestionDTO> questionDTOList = new ArrayList<>();
         if(questionList!=null&&questionList.size()>0){
             for (Question question : questionList) {

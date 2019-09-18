@@ -1,5 +1,6 @@
 package lift.miao.community.mapper;
 
+import lift.miao.community.dto.QuestionQueryDTO;
 import lift.miao.community.model.Question;
 import lift.miao.community.model.QuestionExample;
 import org.apache.ibatis.annotations.Param;
@@ -15,4 +16,7 @@ public interface QuestionExtMapper {
 
     List<Question> selectRelated(Question question);
 
+    Integer countBySearch(QuestionQueryDTO questionQueryDTO);
+
+    List<Question> selectBySearch(QuestionQueryDTO questionQueryDTO);
 }
