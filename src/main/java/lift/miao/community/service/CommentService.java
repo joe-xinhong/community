@@ -70,6 +70,7 @@ public class CommentService {
             if(question == null){
                 throw  new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
+            comment.setCommentCount(0);
             commentMapper.insert(comment);
             question.setCommentCount(1);
             questionExtMapper.incCommentCount(question);
@@ -83,6 +84,10 @@ public class CommentService {
      * @param comment
      */
     private void createNotify(Comment comment,Integer receiver,String notifierName,String outerTitle,NotificationTypeEnum notificationType,Long outerId){
+        //不应该把自己给自己文章评论通知发给自己(自己不用给自己通知)
+        if(receiver==comment.getCommentator()){
+            return;
+        }
         Notification notification = new Notification();
         notification.setGmtCreate(System.currentTimeMillis());
         notification.setType(notificationType.getType());
