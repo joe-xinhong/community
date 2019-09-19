@@ -1,4 +1,24 @@
-##苗苗社区
+##安静笔记
+
+##部署
+###依赖
+- Git安装（拉代码）
+- JDK (编译)
+- Maven (构建项目)
+- Mysql (数据库)
+
+## 步骤
+- yum update (更新系统插件)
+- yum install git （安装git）
+- mkdir App (root下创建代码文件夹)
+- cd App
+- git clone https://gitee.com/xinhong8156/community.git(拉代码)
+- yum install maven（安装maven）
+- yum v (查询maven版本)
+- mvn comile package(编译打包，clean可以去掉)
+- vim application.properties文件或者复制修改application-production.properties文件后重新打包
+- mvn package
+- java -jar -Dspring.porfiles.active-production target/community-0.0.1-SNAPSHOT.jar (运行配置为application-production.properties的jar包)
 
 
 ##资料
