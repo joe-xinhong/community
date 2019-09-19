@@ -6,6 +6,7 @@ import lift.miao.community.dto.GitUser;
 import lift.miao.community.model.User;
 import lift.miao.community.provider.GithubProvider;
 import lift.miao.community.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import java.util.UUID;
 * @CreateDate:     2019/9/5 15:59
 */
 @Controller
+@Slf4j//日志注解
 @Api(value = "授权接口",description = "授权接口")
 public class AuthorizeController {
 
@@ -62,6 +64,8 @@ public class AuthorizeController {
             //重定向到首页
             return "redirect:/";
         }else {
+            //将后面内容打印到{}之中；即gitUser
+            log.error("callback get github error,{}"+gitUser);
             //登录失败，重新登录
             return "redirect:/";
         }
