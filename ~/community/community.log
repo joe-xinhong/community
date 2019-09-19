@@ -1,0 +1,33 @@
+2019-09-19 15:33:17.257  INFO 9724 --- [restartedMain] l.miao.community.CommunityApplication    : Starting CommunityApplication on SD-20190603XREV with PID 9724 (E:\project201909\community\target\classes started by Administrator in E:\project201909\community)
+2019-09-19 15:33:17.262  INFO 9724 --- [restartedMain] l.miao.community.CommunityApplication    : No active profile set, falling back to default profiles: default
+2019-09-19 15:33:17.312  INFO 9724 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2019-09-19 15:33:17.312  INFO 9724 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2019-09-19 15:33:18.427  INFO 9724 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9439af66] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-19 15:33:18.801  INFO 9724 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8088 (http)
+2019-09-19 15:33:18.821  INFO 9724 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-19 15:33:18.822  INFO 9724 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-09-19 15:33:18.924  INFO 9724 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-19 15:33:18.924  INFO 9724 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1612 ms
+2019-09-19 15:33:19.612  INFO 9724 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-19 15:33:19.720  INFO 9724 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-19 15:33:19.761  INFO 9724 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2019-09-19 15:33:19.792  INFO 9724 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-09-19 15:33:20.012  INFO 9724 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-19 15:33:20.025  INFO 9724 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-19 15:33:20.060  INFO 9724 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-19 15:33:20.272  INFO 9724 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingGET_1
+2019-09-19 15:33:20.274  INFO 9724 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingHEAD_1
+2019-09-19 15:33:20.275  INFO 9724 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingPOST_1
+2019-09-19 15:33:20.277  INFO 9724 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingPUT_1
+2019-09-19 15:33:20.279  INFO 9724 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingPATCH_1
+2019-09-19 15:33:20.280  INFO 9724 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingDELETE_1
+2019-09-19 15:33:20.282  INFO 9724 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingOPTIONS_1
+2019-09-19 15:33:20.284  INFO 9724 --- [restartedMain] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingTRACE_1
+2019-09-19 15:33:20.350  INFO 9724 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8088 (http) with context path ''
+2019-09-19 15:33:20.353  INFO 9724 --- [restartedMain] l.miao.community.CommunityApplication    : Started CommunityApplication in 3.547 seconds (JVM running for 4.271)
+2019-09-19 15:33:30.596  INFO 9724 --- [http-nio-8088-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-19 15:33:30.596  INFO 9724 --- [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-19 15:33:30.602  INFO 9724 --- [http-nio-8088-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-09-19 15:33:30.671  INFO 9724 --- [http-nio-8088-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-19 15:33:30.810  INFO 9724 --- [http-nio-8088-exec-1] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (com.mysql.jdbc.JDBC4Connection.getNetworkTimeout()I)
+2019-09-19 15:33:30.813  INFO 9724 --- [http-nio-8088-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
