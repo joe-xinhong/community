@@ -1,6 +1,5 @@
 package lift.miao.community.controller;
 
-import io.swagger.annotations.Api;
 import lift.miao.community.dto.CommentDTO;
 import lift.miao.community.dto.QuestionDTO;
 import lift.miao.community.enums.CommentTypeEnum;
@@ -20,7 +19,7 @@ import java.util.List;
 * @CreateDate:     2019/9/11 16:07
 */
 @Controller
-@Api(value = "问题详情接口",description = "问题详情接口")
+//@Api(value = "问题详情接口",description = "问题详情接口")
 public class QuestionController {
 
     @Autowired

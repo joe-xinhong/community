@@ -19,7 +19,7 @@
 - vim application.properties文件或者复制修改application-production.properties文件后重新打包
 - mvn package
 - java -jar -Dspring.porfiles.active-production target/community-0.0.1-SNAPSHOT.jar (运行配置为application-production.properties的jar包)
-
+-  本地打包报错后：mvn clean package -Dmaven.test.skip=true
 
 ##资料
 [maven]{https://mvnrepository.com/tags/maven}
