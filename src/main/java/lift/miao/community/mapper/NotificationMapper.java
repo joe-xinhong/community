@@ -5,7 +5,6 @@ import lift.miao.community.model.Notification;
 import lift.miao.community.model.NotificationExample;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
-
 public interface NotificationMapper {
     long countByExample(NotificationExample example);
 

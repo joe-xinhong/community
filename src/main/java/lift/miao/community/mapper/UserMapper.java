@@ -5,7 +5,6 @@ import lift.miao.community.model.User;
 import lift.miao.community.model.UserExample;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
-
 public interface UserMapper {
     long countByExample(UserExample example);
 

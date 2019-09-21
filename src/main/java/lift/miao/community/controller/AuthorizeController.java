@@ -42,6 +42,7 @@ public class AuthorizeController {
     @RequestMapping("/callback")
     public String callback(@RequestParam(name = "code")String code,
                            HttpServletResponse response){
+        System.out.println("进行授权");
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientId);
         accessTokenDTO.setClient_secret(clientSecret);
@@ -61,12 +62,14 @@ public class AuthorizeController {
             //登录成功，写cookie和Session
             Cookie cookie = new Cookie("token",token);
             response.addCookie(cookie);
+            System.out.println("授权成功完成");
             //重定向到首页
             return "redirect:/";
         }else {
             //将后面内容打印到{}之中；即gitUser
             log.error("callback get github error,{}"+gitUser);
             //登录失败，重新登录
+            System.out.println("授权失败");
             return "redirect:/";
         }
     }

@@ -5,7 +5,6 @@ import lift.miao.community.model.Comment;
 import lift.miao.community.model.CommentExample;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
-
 public interface CommentMapper {
     long countByExample(CommentExample example);
 

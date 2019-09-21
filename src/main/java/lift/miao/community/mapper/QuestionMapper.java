@@ -5,7 +5,6 @@ import lift.miao.community.model.Question;
 import lift.miao.community.model.QuestionExample;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
-
 public interface QuestionMapper {
     long countByExample(QuestionExample example);
 

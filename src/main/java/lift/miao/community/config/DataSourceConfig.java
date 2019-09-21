@@ -33,7 +33,7 @@ public class DataSourceConfig {
     @ConfigurationProperties(prefix = "define.datasource.write")
     public DataSource writeDataSource() {
         DruidDataSource source = DataSourceBuilder.create().type(DruidDataSource.class).build();
-        source.setUrl("jdbc:mysql://localhost:3306/community?useSSL=false&characterEncoding=UTF-8&?useUnicode=true");
+        source.setUrl("jdbc:mysql://localhost:3306/community?characterEncoding=UTF-8&useUnicode=true");
         source.setUsername("root");
         source.setPassword("mysql");
         source.setDriverClassName("com.mysql.jdbc.Driver");
