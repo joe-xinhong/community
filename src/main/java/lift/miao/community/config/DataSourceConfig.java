@@ -36,6 +36,7 @@ public class DataSourceConfig {
         source.setUrl("jdbc:mysql://localhost:3306/community?characterEncoding=UTF-8&useUnicode=true");
         source.setUsername("root");
         source.setPassword("mysql");
+        /*source.setDriverClassName("com.mysql.jdbc.Driver");*/
         source.setDriverClassName("com.mysql.jdbc.Driver");
         source.setDbType("com.alibaba.druid.pool.DruidDataSource");
         source.setInitialSize(5);
@@ -51,6 +52,7 @@ public class DataSourceConfig {
         source.setPoolPreparedStatements(true);
         source.setMaxOpenPreparedStatements(-1);
         source.setMaxPoolPreparedStatementPerConnectionSize(20);
+        source.setUseGlobalDataSourceStat(true);
         return source;
     }
 

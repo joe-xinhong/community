@@ -37,21 +37,21 @@
   <select id="countBySearch" parameterType="lift.miao.community.dto.QuestionQueryDTO" resultType="java.lang.Integer">
     select count(*)
     from question
-    <where>
+    <!--<where>
       <if test="search != null and search != ''">
         and title regexp #{search}
       </if>
-    </where>
+    </where>-->
   </select>
 
   <select id="selectBySearch" parameterType="lift.miao.community.dto.QuestionQueryDTO" resultMap="BaseResultMap">
     select *
     from question
-    <where>
+    <!--<where>
       <if test="search != null and search !=''">
         and title regexp #{search}
       </if>
-    </where>
+    </where>-->
     order by gmt_create
     desc
     limit #{page},#{pageSize}
