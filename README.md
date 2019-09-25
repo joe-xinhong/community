@@ -15,7 +15,7 @@
 - git clone https://gitee.com/xinhong8156/community.git(拉代码)
 - yum install maven（安装maven）
 - yum v (查询maven版本)
-- mvn comile package(编译打包，clean可以去掉)
+- mvn compile package(编译打包，clean可以去掉)
 - vim application.properties文件或者复制修改application-production.properties文件后重新打包
 - mvn package
 - java -jar -Dspring.porfiles.active-production target/community-0.0.1-SNAPSHOT.jar (运行配置为application-production.properties的jar包)

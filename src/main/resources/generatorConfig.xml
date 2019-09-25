@@ -48,6 +48,7 @@
         <!-- 要生成哪些表 -->
         <!--<table tableName="user" domainObjectName="User"></table>-->
         <!--<table tableName="question" domainObjectName="Question"></table>-->
-        <table tableName="notification" domainObjectName="notification"></table>
+        <!--<table tableName="notification" domainObjectName="Notification"></table>-->
+        <table tableName="photos" domainObjectName="Photos"></table>
     </context>
 </generatorConfiguration>

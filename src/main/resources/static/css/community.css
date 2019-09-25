@@ -18,6 +18,7 @@ body{
 .media-body{
     padding-top: 10px;
 }
+
 .text-desc{
     font-size:12px;
     font-weight: normal;
@@ -112,4 +113,33 @@ body{
     padding: 10px 30%;
     color: #666;
 }
+/*照片*/
+.enlargeImg_wrapper{
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: rgba(52, 52, 52, 0.8);
+    background-size: 50%;
+}
+.media-photos img{
+    width: 100%;
+    cursor: pointer;
+}
+.media-photos img:hover{
+    cursor: zoom-in;
+}
+
+.enlargeImg_wrapper:hover{
+    cursor: zoom-out;
+}
+
+
+
 
