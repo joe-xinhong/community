@@ -12,10 +12,6 @@ function enlargeImg() {
         $('.enlargeImg_wrapper').fadeIn(200);
     })
 
-    /*$(".enlargeImg_wrapper").click(function () {
-        $('.enlargeImg_wrapper').fadeOut(200).remove();
-    })*/
-
 }
 //关闭并移除图层
 function closeImg() {

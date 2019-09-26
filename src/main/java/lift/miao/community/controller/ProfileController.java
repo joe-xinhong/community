@@ -37,7 +37,7 @@ public class ProfileController {
                           @RequestParam(name = "pageSize",defaultValue = "3")Integer pageSize){
         User user = (User)request.getSession().getAttribute("user");
         if(user==null){
-            return "redirect:/";
+            return "redirect:/tologin";
         }
         if("questions".equals(action)){
             model.addAttribute("section","questions");

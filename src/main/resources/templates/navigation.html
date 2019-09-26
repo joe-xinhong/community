@@ -42,7 +42,8 @@
                 </li>
                 <li th:if="${session.user ==null }">
                     <!--<a href="https://gitee.com/oauth/authorize?client_id=0612af6cad44d6f2e90134725436fe18def380fce1c6c717117ce0ca5b85eec3&redirect_uri=http://localhost:8088/callback&response_type=code&scope=user_info">登录</a>-->
-                    <a th:href="@{https://gitee.com/oauth/authorize(client_id='0612af6cad44d6f2e90134725436fe18def380fce1c6c717117ce0ca5b85eec3',redirect_uri=${#httpServletRequest.getRequestURL()+'callback'},response_type='code',scope='user_info')}">登录</a>
+                    <!--<a th:href="@{https://gitee.com/oauth/authorize(client_id='0612af6cad44d6f2e90134725436fe18def380fce1c6c717117ce0ca5b85eec3',redirect_uri=${#httpServletRequest.getRequestURL()+'callback'},response_type='code',scope='user_info')}">登录</a>-->
+                    <a href="/tologin">登录</a>
                 </li>
             </ul>
         </div>

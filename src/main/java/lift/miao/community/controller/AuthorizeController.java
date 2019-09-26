@@ -39,7 +39,7 @@ public class AuthorizeController {
     @Autowired
     private UserService userService;
     
-    @RequestMapping("/callback")
+    @RequestMapping("/tologincallback")
     public String callback(@RequestParam(name = "code")String code,
                            HttpServletResponse response){
         System.out.println("进行授权");
