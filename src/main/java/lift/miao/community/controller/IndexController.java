@@ -1,6 +1,7 @@
 package lift.miao.community.controller;
 
 import io.swagger.annotations.Api;
+import lift.miao.community.cache.HotTagCache;
 import lift.miao.community.dto.PaginationDTO;
 import lift.miao.community.mapper.UserMapper;
 import lift.miao.community.model.User;
@@ -30,16 +31,22 @@ public class IndexController {
     private UserMapper userMapper;
     @Autowired
     private QuestionService questionService;
+    @Autowired
+    private HotTagCache hotTagCache;
     @RequestMapping("/")
     public String index(Model model,
                         @RequestParam(name = "page",defaultValue = "1")Integer page,
                         @RequestParam(name = "pageSize",defaultValue = "5")Integer pageSize,
-                        @RequestParam(name = "search",required = false)String search){
+                        @RequestParam(name = "search",required = false)String search,
+                        @RequestParam(name = "tag",required = false)String tag){
         /*问题列表*/
-        PaginationDTO pagination = questionService.list(search,page,pageSize);
+        PaginationDTO pagination = questionService.list(search,tag,page,pageSize);
+        List<String> tags = hotTagCache.getHots();
         model.addAttribute("pagination",pagination);
         /*分页时携带*/
         model.addAttribute("search",search);
+        model.addAttribute("tags",tags);
+        model.addAttribute("tag",tag);
         return "index";
     }
 
@@ -60,6 +67,7 @@ public class IndexController {
     public String login(@RequestParam(value = "name")String name,
                         @RequestParam(value = "accountId")String accountId,
                         @RequestParam(name = "search",required = false)String search,
+                        @RequestParam(name = "tag",required = false)String tag,
                         HttpServletRequest request,
                         Model model){
         model.addAttribute("name",name);
@@ -70,10 +78,12 @@ public class IndexController {
         if(users!=null && users.size()>0){
             request.getSession().setAttribute("user",users.get(0));
             /*问题列表*/
-            PaginationDTO pagination = questionService.list(search,1,5);
+            PaginationDTO pagination = questionService.list(search,tag,1,5);
+            List<String> tags = hotTagCache.getHots();
             model.addAttribute("pagination",pagination);
             /*分页时携带*/
             model.addAttribute("search",search);
+            model.addAttribute("tags",tags);
             return "index";
         }
        return "login";

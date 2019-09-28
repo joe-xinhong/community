@@ -28,6 +28,7 @@ java -Xdebug -Xrunjdwp:transport=dt_socket,address=8082,server=y,suspend=y -jar 
 [Spring文档]{https://spring.io}
 [码云授权登录]{https://gitee.com/oauth/applications/new}
 [富文本编辑java代码]（三个尖角号+java+三个尖角号）
+[热度话题]本节算法定时任务+topN计算 ------处理查询时页码携带参数
 //```+java+回车
 //代码
 //+```
