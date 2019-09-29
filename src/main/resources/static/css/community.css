@@ -139,6 +139,12 @@ body{
 .enlargeImg_wrapper:hover{
     cursor: zoom-out;
 }
+.video{
+    padding: 30px;
+}
+.video img{
+    width: 100%;
+}
 
 
 

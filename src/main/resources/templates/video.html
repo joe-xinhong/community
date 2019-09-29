@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>视频详情</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="/css/community.css">
+    <script type="application/javascript" src="/js/jquery-3.3.1.min.js" ></script>
+    <script type="application/javascript" src="/js/bootstrap.js" ></script>
+</head>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+<div class="container-fluid main">
+    <div class="row">
+        <!--目录-->
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" >
+            <h4>视频选集</h4>
+            <ul class="question-related">
+                <li>
+                    <a th:href="@{/video(page=1,aid=${aid})}">开篇介绍1</a>
+                </li>
+                <li>
+                    <a>开篇介绍2</a>
+                </li>
+                <li>
+                    <a>开篇介绍3</a>
+                </li>
+                <li>
+                    <a>开篇介绍4</a>
+                </li>
+                <li>
+                    <a>开篇介绍5</a>
+                </li>
+            </ul>
+        </div>
+        <!--视频-->
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" >
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 30px;">
+                <!--<div>我是视频</div>-->
+                <iframe th:src="@{//player.bilibili.com/player.html(aid=${aid},page=${page})}"
+                        scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"
+                        style="width: 100%;min-height: 450px;"></iframe>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!--<iframe src="//player.bilibili.com/player.html?aid=61820222&cid=108001903&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="~{footer :: foot}"></div>
+</body>
+</html>

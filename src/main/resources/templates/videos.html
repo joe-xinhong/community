@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>视频中心 - 安静笔记</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="/css/community.css">
+    <link rel="stylesheet" type="text/css" href="/css/editormd.preview.min.css">
+    <script type="application/javascript" src="/js/jquery-3.3.1.min.js" ></script>
+    <script type="application/javascript" src="/js/bootstrap.js" ></script>
+    <script type="application/javascript" src="/js/moment.js" ></script>
+    <script type="application/javascript" src="/js/community.js" ></script>
+    <script type="application/javascript" src="/js/editormd.min.js" ></script>
+    <script type="application/javascript" src="/js/lib/marked.min.js" ></script>
+    <script type="application/javascript" src="/js/lib/prettify.min.js" ></script>
+</head>
+<body>
+<div th:insert="~{navigation :: nav}"></div>
+<div class="container-fluid main">
+    <div class="row">
+        <div class="col-md-4 col-sm-12 col-xs-12 video">
+            <a href="/video?aid=61820222"><img src="/images/明月.png"></a>
+            <!--<h2>明月几时有，把酒问青天</h2>
+            <p>明月几时有，把酒问青天,不知天上宫阙，今夕是何夕。</p>
+            <p><a class="btn btn-default" href="/video" role="button">观看</a></p>-->
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <h2>君问归期未有期，巴山夜雨涨秋池</h2>
+            <p>君问归期未有期，巴山夜雨涨秋池,何当共剪西窗烛，却话巴山夜雨时。</p>
+            <p><a class="btn btn-default" href="#" role="button">观看</a></p>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12">
+            <h2>君不见，黄河之水天上来</h2>
+            <p>君不见，黄河之水天上来，奔流到海不复回，君不见，高堂明镜悲白发，朝如青丝暮成雪。</p>
+            <p><a class="btn btn-default" href="#" role="button">观看</a></p>
+        </div>
+    </div>
+</div>
+<div th:insert="~{footer :: foot}"></div>
+</body>
+</html>
