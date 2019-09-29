@@ -23,6 +23,14 @@
 
 java -Xdebug -Xrunjdwp:transport=dt_socket,address=8082,server=y,suspend=y -jar -Dspring.porfiles.active-production target/community-0.0.1-SNAPSHOT.jar
 
+
+- 创建分支（develop），防止影响原运行代码：git checkout -b develop
+- 查看代码状态：git status
+- 查看分支：git branch
+- 提交暂存区：git add .
+- 提交代码：git commit -m "添加视频及详情页码"
+- 推到远端：git push
+- 如果说没有对应的远端。执行：git push --set-upstream origin develop
 ##资料
 [maven]{https://mvnrepository.com/tags/maven}
 [Spring文档]{https://spring.io}
