@@ -13,39 +13,45 @@
 <div th:insert="~{navigation :: nav}"></div>
 <div class="container-fluid main">
     <div class="row">
-        <!--目录-->
-        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" >
-            <h4>视频选集</h4>
-            <ul class="question-related">
-                <li>
-                    <a th:href="@{/video(page=1,aid=${aid})}">开篇介绍1</a>
-                </li>
-                <li>
-                    <a>开篇介绍2</a>
-                </li>
-                <li>
-                    <a>开篇介绍3</a>
-                </li>
-                <li>
-                    <a>开篇介绍4</a>
-                </li>
-                <li>
-                    <a>开篇介绍5</a>
-                </li>
-            </ul>
-        </div>
         <!--视频-->
-        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" >
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 30px;">
-                <!--<div>我是视频</div>-->
-                <iframe th:src="@{//player.bilibili.com/player.html(aid=${aid},page=${page})}"
-                        scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"
-                        style="width: 100%;min-height: 450px;"></iframe>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" >
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 30px;">
+                    <!--<div>我是视频</div>-->
+                    <iframe th:src="@{//player.bilibili.com/player.html(aid=${aid},page=${page})}"
+                            scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"
+                            style="width: 100%;min-height: 450px;"></iframe>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            视频选集 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/video(page=1,aid=${aid})}">开篇介绍1</a></li>
+                            <li><a>开篇介绍2</a></li>
+                            <li><a>开篇介绍3</a></li>
+                            <li><a>开篇介绍4</a></li>
+                            <li><a>开篇介绍5</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <!--<iframe src="//player.bilibili.com/player.html?aid=61820222&cid=108001903&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>-->
+            <!--目录-->
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" >
+                <h4>视频笔记</h4>
+                <ul class="question-related">
+                    这里是笔记,你还有什么要说的吗？例如：遇见你花光了我所有的运气，愿余生都是你！前路漫漫，与君前行。
+                </ul>
             </div>
         </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+            <h4>视频留言/评论</h4>
+            这里评论
+        </div>
+
+
     </div>
 </div>
 <div th:insert="~{footer :: foot}"></div>

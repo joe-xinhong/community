@@ -1728,3 +1728,107 @@ org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as express
 2019-09-29 20:50:16.506 DEBUG 7996 --- [http-nio-8083-exec-1] l.m.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: SELECT id, name, account_id, token, gmt_create, gmt_modified, bio, avatar_url FROM user WHERE id = ? 
 2019-09-29 20:50:16.509 DEBUG 7996 --- [http-nio-8083-exec-1] l.m.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 1(Integer)
 2019-09-29 20:50:16.510 DEBUG 7996 --- [http-nio-8083-exec-1] l.m.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2019-09-29 21:28:24.009  INFO 10064 --- [main] l.miao.community.CommunityApplication    : Starting CommunityApplication on SD-20190603XREV with PID 10064 (E:\project201909\community\target\classes started by Administrator in E:\project201909\community)
+2019-09-29 21:28:24.012  INFO 10064 --- [main] l.miao.community.CommunityApplication    : The following profiles are active: local
+2019-09-29 21:28:24.725  WARN 10064 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'commentExtMapper' and 'lift.miao.community.mapper.CommentExtMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:28:24.725  WARN 10064 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'commentMapper' and 'lift.miao.community.mapper.CommentMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:28:24.725  WARN 10064 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'notificationMapper' and 'lift.miao.community.mapper.NotificationMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:28:24.725  WARN 10064 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'photosMapper' and 'lift.miao.community.mapper.PhotosMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:28:24.725  WARN 10064 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'questionExtMapper' and 'lift.miao.community.mapper.QuestionExtMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:28:24.726  WARN 10064 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'questionMapper' and 'lift.miao.community.mapper.QuestionMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:28:24.726  WARN 10064 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'lift.miao.community.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:28:24.726  WARN 10064 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[lift.miao.community.mapper]' package. Please check your configuration.
+2019-09-29 21:28:25.111  INFO 10064 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e1197909] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-29 21:28:25.341  INFO 10064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2019-09-29 21:28:25.361  INFO 10064 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-29 21:28:25.361  INFO 10064 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-09-29 21:28:25.474  INFO 10064 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-29 21:28:25.475  INFO 10064 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1414 ms
+2019-09-29 21:28:25.761  INFO 10064 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-09-29 21:28:26.517  INFO 10064 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-29 21:28:26.638  INFO 10064 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-29 21:28:26.703  INFO 10064 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-09-29 21:28:26.811  INFO 10064 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-09-29 21:28:26.865  INFO 10064 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-29 21:28:26.880  INFO 10064 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-29 21:28:26.917  INFO 10064 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-29 21:28:27.150  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingGET_1
+2019-09-29 21:28:27.152  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingHEAD_1
+2019-09-29 21:28:27.154  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingPOST_1
+2019-09-29 21:28:27.155  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingPUT_1
+2019-09-29 21:28:27.157  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingPATCH_1
+2019-09-29 21:28:27.159  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingDELETE_1
+2019-09-29 21:28:27.160  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingOPTIONS_1
+2019-09-29 21:28:27.162  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingTRACE_1
+2019-09-29 21:28:27.211  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_1
+2019-09-29 21:28:27.212  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingHEAD_1
+2019-09-29 21:28:27.212  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPOST_1
+2019-09-29 21:28:27.213  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPUT_1
+2019-09-29 21:28:27.214  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPATCH_1
+2019-09-29 21:28:27.215  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingDELETE_1
+2019-09-29 21:28:27.216  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingOPTIONS_1
+2019-09-29 21:28:27.216  INFO 10064 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingTRACE_1
+2019-09-29 21:28:27.238  INFO 10064 --- [scheduling-1] l.miao.community.schedule.HotTagTasks    : HotTagTasks  start Sun Sep 29 21:28:27 CST 2019
+2019-09-29 21:28:27.264  INFO 10064 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+2019-09-29 21:28:27.267  INFO 10064 --- [main] l.miao.community.CommunityApplication    : Started CommunityApplication in 3.747 seconds (JVM running for 4.405)
+2019-09-29 21:28:27.293 DEBUG 10064 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: SELECT id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag FROM question 
+2019-09-29 21:28:27.316 DEBUG 10064 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2019-09-29 21:28:27.334 DEBUG 10064 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: SELECT id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag FROM question 
+2019-09-29 21:28:27.337 DEBUG 10064 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2019-09-29 21:28:27.338 DEBUG 10064 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 11
+2019-09-29 21:28:27.339  INFO 10064 --- [scheduling-1] l.miao.community.schedule.HotTagTasks    : HotTagTasks  stop Sun Sep 29 21:28:27 CST 2019
+2019-09-29 21:28:33.901  INFO 10064 --- [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-29 21:28:33.901  INFO 10064 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-29 21:28:33.907  INFO 10064 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-09-29 21:36:14.451  INFO 8572 --- [main] l.miao.community.CommunityApplication    : Starting CommunityApplication on SD-20190603XREV with PID 8572 (E:\project201909\community\target\classes started by Administrator in E:\project201909\community)
+2019-09-29 21:36:14.464  INFO 8572 --- [main] l.miao.community.CommunityApplication    : The following profiles are active: local
+2019-09-29 21:36:15.123  WARN 8572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'commentExtMapper' and 'lift.miao.community.mapper.CommentExtMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:36:15.123  WARN 8572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'commentMapper' and 'lift.miao.community.mapper.CommentMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:36:15.123  WARN 8572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'notificationMapper' and 'lift.miao.community.mapper.NotificationMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:36:15.123  WARN 8572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'photosMapper' and 'lift.miao.community.mapper.PhotosMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:36:15.123  WARN 8572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'questionExtMapper' and 'lift.miao.community.mapper.QuestionExtMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:36:15.124  WARN 8572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'questionMapper' and 'lift.miao.community.mapper.QuestionMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:36:15.124  WARN 8572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : Skipping MapperFactoryBean with name 'userMapper' and 'lift.miao.community.mapper.UserMapper' mapperInterface. Bean already defined with the same name!
+2019-09-29 21:36:15.124  WARN 8572 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[lift.miao.community.mapper]' package. Please check your configuration.
+2019-09-29 21:36:15.482  INFO 8572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$61e5a595] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-29 21:36:15.725  INFO 8572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2019-09-29 21:36:15.746  INFO 8572 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-29 21:36:15.746  INFO 8572 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-09-29 21:36:15.877  INFO 8572 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-29 21:36:15.877  INFO 8572 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1369 ms
+2019-09-29 21:36:16.163  INFO 8572 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-09-29 21:36:16.924  INFO 8572 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2019-09-29 21:36:17.039  INFO 8572 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-29 21:36:17.103  INFO 8572 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2019-09-29 21:36:17.204  INFO 8572 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2019-09-29 21:36:17.255  INFO 8572 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-09-29 21:36:17.270  INFO 8572 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-09-29 21:36:17.306  INFO 8572 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-09-29 21:36:17.534  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingGET_1
+2019-09-29 21:36:17.536  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingHEAD_1
+2019-09-29 21:36:17.537  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingPOST_1
+2019-09-29 21:36:17.539  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingPUT_1
+2019-09-29 21:36:17.540  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingPATCH_1
+2019-09-29 21:36:17.542  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingDELETE_1
+2019-09-29 21:36:17.543  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingOPTIONS_1
+2019-09-29 21:36:17.544  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: profileUsingTRACE_1
+2019-09-29 21:36:17.571  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingGET_1
+2019-09-29 21:36:17.572  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingHEAD_1
+2019-09-29 21:36:17.573  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPOST_1
+2019-09-29 21:36:17.573  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPUT_1
+2019-09-29 21:36:17.574  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingPATCH_1
+2019-09-29 21:36:17.574  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingDELETE_1
+2019-09-29 21:36:17.575  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingOPTIONS_1
+2019-09-29 21:36:17.576  INFO 8572 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: indexUsingTRACE_1
+2019-09-29 21:36:17.594  INFO 8572 --- [scheduling-1] l.miao.community.schedule.HotTagTasks    : HotTagTasks  start Sun Sep 29 21:36:17 CST 2019
+2019-09-29 21:36:17.618  INFO 8572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+2019-09-29 21:36:17.621  INFO 8572 --- [main] l.miao.community.CommunityApplication    : Started CommunityApplication in 3.566 seconds (JVM running for 4.225)
+2019-09-29 21:36:17.648 DEBUG 8572 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: SELECT id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag FROM question 
+2019-09-29 21:36:17.670 DEBUG 8572 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2019-09-29 21:36:17.689 DEBUG 8572 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : ==>  Preparing: SELECT id, title, gmt_create, gmt_modified, creator, comment_count, view_count, like_count, tag FROM question 
+2019-09-29 21:36:17.692 DEBUG 8572 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : ==> Parameters: 
+2019-09-29 21:36:17.693 DEBUG 8572 --- [scheduling-1] l.m.c.m.Q.selectByExampleWithRowbounds   : <==      Total: 11
+2019-09-29 21:36:17.694  INFO 8572 --- [scheduling-1] l.miao.community.schedule.HotTagTasks    : HotTagTasks  stop Sun Sep 29 21:36:17 CST 2019
+2019-09-29 21:36:22.883  INFO 8572 --- [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-29 21:36:22.883  INFO 8572 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-29 21:36:22.892  INFO 8572 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
