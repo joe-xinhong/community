@@ -23,7 +23,7 @@
 
 java -Xdebug -Xrunjdwp:transport=dt_socket,address=8082,server=y,suspend=y -jar -Dspring.porfiles.active-production target/community-0.0.1-SNAPSHOT.jar
 
-
+#git常用命令1
 - 创建分支（develop），防止影响原运行代码：git checkout -b develop
 - 查看代码状态：git status
 - 查看分支：git branch
@@ -31,6 +31,30 @@ java -Xdebug -Xrunjdwp:transport=dt_socket,address=8082,server=y,suspend=y -jar 
 - 提交代码：git commit -m "添加视频及详情页码"
 - 推到远端：git push
 - 如果说没有对应的远端。执行：git push --set-upstream origin develop
+
+#git常用命令2
+git 合并分支到master
+假如我们现在在dev分支上，刚开发完项目，执行了下列命令
+
+git add .
+git commit -m ‘dev'
+git push -u origin dev
+
+然后我们要把dev分支的代码合并到master分支上 该如何？ 
+首先切换到master分支上
+git checkout master
+如果是多人开发的话 需要把远程master上的代码pull下来
+git pull origin master
+如果是自己一个开发就没有必要了，为了保险期间还是pull
+然后我们把dev分支的代码合并到master上
+git merge dev
+然后查看状态
+git status
+On branch master
+Your branch is ahead of 'origin/master' by 12 commits.
+(use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
 ##资料
 [maven]{https://mvnrepository.com/tags/maven}
 [Spring文档]{https://spring.io}
