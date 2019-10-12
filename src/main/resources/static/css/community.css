@@ -1,5 +1,6 @@
 body{
-    background-color: #efefef;
+    /*background-color: #efefef;*/
+    background: url("/images/bili.jpg") top/cover no-repeat fixed;
 }
 .main{
     margin: 30px;
