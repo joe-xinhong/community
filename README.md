@@ -6,6 +6,8 @@
 - JDK (编译)
 - Maven (构建项目)
 - Mysql (数据库)
+- 广告位
+- 注册谷歌AdSense
 
 ## 步骤
 - yum update (更新系统插件)
