@@ -26,6 +26,10 @@
                     <!--onclick="gtag('event','click',{'event_label':'VIDEO','trangsport_type':'NAV'})"-->
                     <a class="navbar-brand" href="/videos" target=""  >安静视频</a>
                 </li>
+                <li th:each="ad:${#httpServletRequest.getServletContext().getAttribute('NAV')}">
+                <!--<li th:each="ad:${session.ads}">-->
+                    <a th:href="${ad.url}" class="navbar-brand"  target="_blank" th:text="${ad.title}"  ></a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li th:if="${session.user !=null }">
